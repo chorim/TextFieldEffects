@@ -69,7 +69,7 @@ import UIKit
         }
     }
     
-    private let borderThickness: (active: CGFloat, inactive: CGFloat) = (active: 2, inactive: 0.5)
+    private var borderThickness: (active: CGFloat, inactive: CGFloat) = (active: 2, inactive: 0.5)
     private let placeholderInsets = CGPoint(x: 0, y: 6)
     private let textFieldInsets = CGPoint(x: 0, y: 12)
     private let inactiveBorderLayer = CALayer()
@@ -187,5 +187,10 @@ import UIKit
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
     }
-    
+  
+    // MARK: - Customs
+    public func setBorderThickness(active: CGFloat = 2.0, inactive: CGFloat = 0.5) {
+        self.borderThickness = (active, inactive)
+    }
+  
 }
